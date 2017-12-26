@@ -9,7 +9,7 @@ function Book(title, author, isbn){
 function UI(){}
 //Add Book to List
 UI.prototype.addBook = function (book) {
-  const list = document.querySelector('#book-list');
+  const list = document.getElementById('book-list');
   //Create row
   const row = document.createElement('tr');
   //insert cols
@@ -31,7 +31,7 @@ UI.prototype.showAlert = function (msg, className) {
   //Add Text
   alert.appendChild(document.createTextNode(msg));
   //Get Parent
-  const container = document.querySelector('.container'), form = document.querySelector('#book-form');
+  const container = document.querySelector('.container'), form = document.getElementById('book-form');
   //Insert Alert
   container.insertBefore(alert, form);
   //Set Timeout
@@ -48,17 +48,17 @@ UI.prototype.deleteBook = function (target) {
 }
 //Clear Fields
 UI.prototype.clearFields = function () {
-  document.querySelector('#title').value = '',
-  document.querySelector('#author').value = '',
-  document.querySelector('#isbn').value = '';
+  document.getElementById('title').value = '',
+  document.getElementById('author').value = '',
+  document.getElementById('#isbn').value = '';
 }
 
 //Event Listener Book Submit
-document.querySelector('#book-form').addEventListener('submit', function (e) {
+document.getElementById('book-form').addEventListener('submit', function (e) {
   //Get form values
-  const title = document.querySelector('#title').value,
-        author = document.querySelector('#author').value,
-        isbn = document.querySelector('#isbn').value;
+  const title = document.getElementById('title').value,
+        author = document.getElementById('author').value,
+        isbn = document.getElementById('isbn').value;
   //Instantiate a new Book
   const book = new Book(title, author, isbn);
   //Instantiate UI
@@ -81,7 +81,7 @@ document.querySelector('#book-form').addEventListener('submit', function (e) {
 })
 
 //Event Listener Book Delete
-document.querySelector('#book-list').addEventListener('click', function (e) {
+document.getElementById('book-list').addEventListener('click', function (e) {
   //Instantiate UI
   const ui = new UI();
   //Remove
